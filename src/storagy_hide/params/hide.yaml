@@ -1,0 +1,30 @@
+# 숨는팀(토이 가이드, 컨셉 3) 공통 파라미터 — hide_bringup.launch.py 가 모든 노드에 주입.
+# 노드 키는 launch 의 name= 과 일치해야 한다.
+
+hide_state_machine:
+  ros__parameters:
+    return_settle_s: 2.0        # RETURN 후 대기석 안정화 시간(이후 DOCK 시도)
+
+hide_aruco_dock:
+  ros__parameters:
+    target_id: 0                # aruco_0 (대기석/책상다리 태그 ID)
+    stop_distance_m: 0.4        # 태그 앞 정지 거리
+
+hide_human_perception:
+  ros__parameters:
+    fov_deg: 120.0              # 사람 전방 진입금지 부채꼴 각도
+    zone_radius_m: 1.0          # 부채꼴 반경
+    yolo_conf: 0.7              # YOLO confidence 임계값
+    model: yolov8n.pt           # 워크스페이스 루트의 가중치
+
+hide_dynamic_costmap:
+  ros__parameters:
+    resolution_m: 0.05          # 마스크 해상도
+    frame_id: base_link
+
+# hideout(대기석) — 1206_2 구석 (-4.55, -3.0)
+hideout:
+  x: -4.55
+  y: -3.0
+  qz: 0.0
+  qw: 1.0

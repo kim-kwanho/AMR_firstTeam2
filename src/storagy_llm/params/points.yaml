@@ -1,0 +1,38 @@
+# 1206_2 밑판 + 청사진 주석 T1~T4 (worlds/2026_amr_layout.json)
+# table* 좌표 = 테이블 앞 접근점(맵 free), 중심 아님
+places:
+  origin:
+    x: -3.92
+    y: 0.12
+    qz: 0.0
+    qw: 1.0
+  entry_door:
+    x: -4.47
+    y: 0.12
+    qz: 0.0
+    qw: 1.0
+  hideout:
+    x: -4.55
+    y: -2.2
+    qz: 0.0
+    qw: 1.0
+  table1:
+    x: -1.92
+    y: 0.12
+    qz: 1.0
+    qw: 0.0
+  table2:
+    x: 0.5
+    y: 0.65
+    qz: 1.0
+    qw: 0.0
+  table3:
+    x: 0.5
+    y: -0.7
+    qz: 1.0
+    qw: 0.0
+  table4:
+    x: 3.84
+    y: -0.5
+    qz: 1.0
+    qw: 0.0

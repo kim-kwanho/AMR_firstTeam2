@@ -1,0 +1,17 @@
+# Secrets and local config
+.env
+**/.env
+
+# Model weights (download locally)
+yolov8n.pt
+*.pt
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# ROS2 colcon
+build/
+install/
+log/

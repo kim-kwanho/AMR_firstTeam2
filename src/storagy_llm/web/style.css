@@ -1,0 +1,281 @@
+:root {
+  --bg: #faf5ee;
+  --card: #fffdf9;
+  --ink: #3d3229;
+  --ink-soft: #8a7d6f;
+  --accent: #d97742;
+  --accent-deep: #b85c2e;
+  --line: #ede4d7;
+  --ok: #4e9a51;
+  --idle: #b9a98f;
+  --user-bubble: #d97742;
+  --bot-bubble: #f3ece1;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  min-height: 100vh;
+}
+
+.frame {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---------- header ---------- */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 4px 6px;
+}
+.title { display: flex; align-items: center; gap: 12px; }
+.logo {
+  font-size: 30px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 8px 10px;
+  box-shadow: 0 2px 6px rgba(61, 50, 41, .06);
+}
+h1 {
+  font-family: 'Gowun Batang', serif;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+}
+.subtitle { color: var(--ink-soft); font-size: 13px; margin-top: 2px; }
+
+.badges { display: flex; gap: 8px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+.badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--idle); }
+.badge.on { color: var(--ok); }
+.badge.on .dot { background: var(--ok); }
+.badge.off { color: #c0564a; }
+.badge.off .dot { background: #c0564a; animation: blink 1.2s infinite; }
+.badge.moving { color: var(--accent-deep); }
+.badge.moving .dot { background: var(--accent); animation: blink 1.2s infinite; }
+.badge.alert {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent-deep);
+  animation: pulse 1.4s infinite;
+}
+@keyframes pulse { 50% { box-shadow: 0 0 0 5px rgba(217, 119, 66, .25); } }
+@keyframes blink { 50% { opacity: .25; } }
+
+/* ---------- cards ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(61, 50, 41, .05);
+  overflow: hidden;
+}
+.card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 14px 18px 10px;
+}
+.card-head h2 { font-size: 16px; font-weight: 600; }
+.hint { font-size: 12px; color: var(--ink-soft); }
+
+/* ---------- map ---------- */
+#map-wrap { position: relative; margin: 0 14px 14px; border-radius: 12px; overflow: hidden; }
+#floor { display: block; width: 100%; height: auto; }
+#overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+#pose-waiting {
+  position: absolute;
+  top: 10px; left: 50%;
+  transform: translateX(-50%);
+  background: rgba(61, 50, 41, .78);
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+#pose-waiting.hidden { display: none; }
+
+/* ---------- camera ---------- */
+#camera-wrap {
+  position: relative;
+  margin: 0 14px 14px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #2b241d;
+  min-height: 120px;
+}
+#camera-stream {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+#camera-wrap.no-signal #camera-stream { opacity: 0.25; }
+#camera-waiting {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(61, 50, 41, .78);
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+#camera-wrap:not(.no-signal) #camera-waiting { display: none; }
+
+/* ---------- chat ---------- */
+#chat-log {
+  height: 300px;
+  overflow-y: auto;
+  padding: 6px 18px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.msg { display: flex; }
+.msg.user { justify-content: flex-end; }
+.bubble {
+  max-width: 78%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.msg.bot .bubble {
+  background: var(--bot-bubble);
+  border-bottom-left-radius: 4px;
+}
+.msg.user .bubble {
+  background: var(--user-bubble);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+.msg.typing .bubble { color: var(--ink-soft); }
+.msg.typing .bubble::after {
+  content: '…';
+  animation: blink 1s infinite;
+}
+
+#chat-form {
+  display: flex;
+  gap: 8px;
+  padding: 12px 14px 14px;
+  border-top: 1px solid var(--line);
+  background: #fbf7f0;
+}
+#chat-input {
+  flex: 1;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 11px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #fff;
+  color: var(--ink);
+  outline: none;
+}
+#chat-input:focus { border-color: var(--accent); }
+#chat-send {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 0 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background .15s;
+}
+#chat-send:hover { background: var(--accent-deep); }
+#chat-send:disabled { background: var(--idle); cursor: default; }
+
+/* ---------- event log ---------- */
+#event-log {
+  height: 180px;
+  overflow-y: auto;
+  padding: 4px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.event {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 13px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: #faf6ee;
+  border: 1px solid var(--line);
+}
+.event-time {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.event-text { color: var(--ink); }
+.event.empty {
+  justify-content: center;
+  color: var(--ink-soft);
+  background: transparent;
+  border: none;
+}
+
+@media (max-width: 560px) {
+  h1 { font-size: 20px; }
+  #chat-log { height: 240px; }
+}
+
+/* ---------- Docent Mode (Premium Styling) ---------- */
+body.docent-mode {
+  background: radial-gradient(circle at top left, #1c1d22, #0d0e12);
+  transition: background 0.5s ease;
+}
+.frame.docent-mode {
+  border-top: 4px solid var(--accent);
+  box-shadow: 0 0 20px rgba(217, 119, 66, 0.15);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.frame.docent-mode header {
+  background: linear-gradient(90deg, rgba(217, 119, 66, 0.1) 0%, rgba(13, 14, 18, 0) 100%);
+}
+.frame.docent-mode header h1::after {
+  content: " 🎧 도슨트 모드";
+  font-size: 14px;
+  color: var(--accent);
+  vertical-align: middle;
+  background: rgba(217, 119, 66, 0.15);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 600;
+}

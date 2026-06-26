@@ -1,0 +1,3 @@
+LED_brighness: 100
+local_planner: dwa
+volume: 100

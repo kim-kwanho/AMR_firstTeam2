@@ -1,0 +1,14 @@
+<?xml version="1.0" ?><sdf version="1.6">
+  <model name="aruco_0">
+    <static>true</static>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://aruco_0/meshes/aruco_0.dae</uri>
+          <scale>0.38 0.38 0.38</scale></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

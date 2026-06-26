@@ -1,0 +1,180 @@
+{
+  "base": {
+    "mesh": "1206_2_sim.dae",
+    "mesh_uri": "1206_2_sim.dae",
+    "model": "environment_1206_2",
+    "pose": [
+      -4.65,
+      -3.8,
+      0.5
+    ],
+    "nav_map": "1206_sim_1.yaml",
+    "room_1206": {
+      "x": [
+        -4.8,
+        4.8
+      ],
+      "y": [
+        -3.5,
+        3.5
+      ]
+    }
+  },
+  "entry_door": {
+    "name": "entry_door",
+    "x": -4.47,
+    "y": 0.12,
+    "width_m": 0.85,
+    "yaw_rad": 1.5708
+  },
+  "origin": {
+    "x": -3.92,
+    "y": 0.12,
+    "qz": 0.0,
+    "qw": 1.0
+  },
+  "hideout": {
+    "x": -4.55,
+    "y": -3.0,
+    "qz": 0.0,
+    "qw": 1.0
+  },
+  "desks": [
+    {
+      "name": "t1",
+      "label": "T1",
+      "x": -2.4,
+      "y": 0.45,
+      "size_x": 0.62,
+      "size_y": 2.09,
+      "size_z": 0.75,
+      "yaw_rad": 0.0,
+      "orientation": "vertical",
+      "chairs": [
+        {
+          "id": "t1_px1",
+          "x": -1.76,
+          "y": 1.21,
+          "yaw_rad": 3.1416
+        },
+        {
+          "id": "t1_px2",
+          "x": -1.76,
+          "y": -0.3,
+          "yaw_rad": 3.1416
+        }
+      ]
+    },
+    {
+      "name": "t2",
+      "label": "T2",
+      "x": 0.5,
+      "y": 1.53,
+      "size_x": 0.62,
+      "size_y": 1.71,
+      "size_z": 0.75,
+      "yaw_rad": 0.0,
+      "orientation": "vertical",
+      "chairs": [
+        {
+          "id": "t2_px1",
+          "x": 1.14,
+          "y": 2.1,
+          "yaw_rad": 3.1416
+        },
+        {
+          "id": "t2_px2",
+          "x": 1.14,
+          "y": 0.96,
+          "yaw_rad": 3.1416
+        },
+        {
+          "id": "t2_nx1",
+          "x": -0.14,
+          "y": 2.1,
+          "yaw_rad": 0.0
+        },
+        {
+          "id": "t2_nx2",
+          "x": -0.14,
+          "y": 0.96,
+          "yaw_rad": 0.0
+        }
+      ]
+    },
+    {
+      "name": "t3",
+      "label": "T3",
+      "x": 0.5,
+      "y": -1.58,
+      "size_x": 0.62,
+      "size_y": 1.71,
+      "size_z": 0.75,
+      "yaw_rad": 0.0,
+      "orientation": "vertical",
+      "chairs": [
+        {
+          "id": "t3_px1",
+          "x": 1.14,
+          "y": -1.02,
+          "yaw_rad": 3.1416
+        },
+        {
+          "id": "t3_px2",
+          "x": 1.14,
+          "y": -2.15,
+          "yaw_rad": 3.1416
+        },
+        {
+          "id": "t3_nx1",
+          "x": -0.14,
+          "y": -1.02,
+          "yaw_rad": 0.0
+        },
+        {
+          "id": "t3_nx2",
+          "x": -0.14,
+          "y": -2.15,
+          "yaw_rad": 0.0
+        }
+      ]
+    },
+    {
+      "name": "t4",
+      "label": "T4",
+      "x": 3.2,
+      "y": -0.5,
+      "size_x": 0.62,
+      "size_y": 2.09,
+      "size_z": 0.75,
+      "yaw_rad": 0.0,
+      "orientation": "vertical",
+      "chairs": [
+        {
+          "id": "t4_px1",
+          "x": 3.84,
+          "y": 0.26,
+          "yaw_rad": 3.1416
+        },
+        {
+          "id": "t4_px2",
+          "x": 3.84,
+          "y": -1.25,
+          "yaw_rad": 3.1416
+        },
+        {
+          "id": "t4_nx1",
+          "x": 2.56,
+          "y": 0.26,
+          "yaw_rad": 0.0
+        },
+        {
+          "id": "t4_nx2",
+          "x": 2.56,
+          "y": -1.25,
+          "yaw_rad": 0.0
+        }
+      ]
+    }
+  ]
+}

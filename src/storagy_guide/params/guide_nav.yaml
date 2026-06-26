@@ -1,0 +1,18 @@
+guide_nav_node:
+  ros__parameters:
+    use_sim_time: false
+
+    # MVP demo switch. Set true to simulate "a person arrived" without another node.
+    demo_person_arrived: false
+
+    # Fixed classroom demo target in the map frame. Tune after checking the classroom map.
+    target_frame: map
+    target_x: 1.0
+    target_y: 0.0
+    target_yaw: 0.0
+
+    # Goal resend behavior after Freeze is released.
+    resend_goal_after_resume: true
+
+    # Safety stop behavior while /hide/freeze is true.
+    stop_publish_hz: 10.0
